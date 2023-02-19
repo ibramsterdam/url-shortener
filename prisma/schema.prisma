@@ -10,8 +10,19 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model Url {
+    id          String        @id @default(uuid())
+    originalUrl String
+    shortUrl    String
+    urlCode     String        @unique
+    createdAt   DateTime      @default(now())
+    updatedAt   DateTime      @updatedAt
+    UrlAnalytic UrlAnalytic[]
+}
+
+model UrlAnalytic {
+    id      String @id @default(uuid())
+    url     Url    @relation(fields: [url_id], references: [id])
+    url_id  String
+    clicked Int
 }
