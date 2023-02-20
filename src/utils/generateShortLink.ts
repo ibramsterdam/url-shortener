@@ -5,6 +5,6 @@ export function generateShortLink(host: string) {
   const shortCode = nanoid();
   return {
     shortCode,
-    shortUrl: `http://${host}/api/${shortCode}`,
+    shortUrl: `https://${host}/api/${shortCode}`,
   };
 }
