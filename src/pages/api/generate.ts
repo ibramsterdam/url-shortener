@@ -12,6 +12,10 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  console.log(req.method);
+
+  console.log("OI");
+
   if (req.method !== "POST") {
     return res.status(400).json({
       message: "Only POST request are allowed!",
