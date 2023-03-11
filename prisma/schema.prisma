@@ -12,8 +12,8 @@ datasource db {
 
 model Url {
     id          String        @id @default(uuid())
-    originalUrl String
-    shortUrl    String
+    originalUrl String        @unique
+    shortUrl    String        @unique
     urlCode     String        @unique
     createdAt   DateTime      @default(now())
     updatedAt   DateTime      @updatedAt
@@ -22,7 +22,7 @@ model Url {
 
 model UrlAnalytic {
     id      String @id @default(uuid())
-    url     Url    @relation(fields: [urlId], references: [id])
+    url     Url    @relation(fields: [urlId], references: [id], onDelete: Cascade)
     urlId   String @unique
     clicked Int
 }
