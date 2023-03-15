@@ -1,3 +1,4 @@
+export {};
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 // import { PrismaClient } from "@prisma/client";
 // const prisma = new PrismaClient();
